@@ -3,7 +3,7 @@ var ctx = canvas.getContext("2d");
 var player_x=canvas.width/2-150;
 var player_y=canvas.height/2;
 
-
+var enemy_arrary=[];
 var upPressed = false;
 var downPressed = false;
 var pos=canvas.width;
@@ -53,23 +53,50 @@ function draw_player()
         }
  }
 }
-// function draw_enemy()
-//     {
+function modify_enemy_x_pos()
+{
+  for(var i=0;i<enemy_arrary.length;i++)
+    { 
+      (enemy_arrary[i].x)-=5;
+
+    }
+}
+function gen_enemy()
+{
+    var enemy_y=Math.floor(Math.random()*canvas.height);
+    var enemy_x=canvas.width-1;
+    var obj={x:enemy_x,y:enemy_y};
+    enemy_arrary.push(obj);
+}
+function draw_enemy()
+    {
+    
+    for(var i=0;i<enemy_arrary.length;i++)
+    {
       
-//     ctx.beginPath();
-//     ctx.arc(pos, player_y, 10, 0, Math.PI*2);
-//     ctx.fillStyle = "#0095DD";
-//     ctx.fill();
-//     ctx.closePath();
-//       pos--;
-//     }
+      ctx.beginPath();
+//       ctx.arc(enemy_arrary[i].x, enemy_arrary[i].y, 0, Math.PI*2);
+      ctx.rect(enemy_arrary[i].x-20, enemy_arrary[i].y, 20, 20);
+//       ctx.rect(150, 150, 20, 20);
+      ctx.fillStyle = "#0095DD";
+      ctx.fill();
+      ctx.closePath();
+     
+    }
+      
+      
+    
+    }
 function draw()
 {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   draw_player();
-//   draw_enemy();
+  gen_enemy()
+  draw_enemy();
+  modify_enemy_x_pos();
+//   console.log(enemy_arrary[0]);
   
 
 }
 
-setInterval(draw, 10);
+setInterval(draw, 100);
