@@ -10,7 +10,9 @@ var pos=canvas.width;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 function keyDownHandler(e) {
     if(e.key == "Up" || e.key == "ArrowUp") {
         upPressed = true;
@@ -61,8 +63,9 @@ function modify_enemy_x_pos()
 
     }
 }
-function gen_enemy()
+async function gen_enemy()
 {
+//   await sleep(800);
     var enemy_y=Math.floor(Math.random()*canvas.height);
     var enemy_x=canvas.width-1;
     var obj={x:enemy_x,y:enemy_y};
@@ -91,7 +94,7 @@ function draw()
 {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   draw_player();
-  gen_enemy()
+//   gen_enemy()
   draw_enemy();
   modify_enemy_x_pos();
 //   console.log(enemy_arrary[0]);
@@ -99,4 +102,5 @@ function draw()
 
 }
 
-setInterval(draw, 100);
+setInterval(draw, 10);
+setInterval(gen_enemy, 1000);
