@@ -14,3 +14,5 @@ use only js css html
 + mouseMoveHandler()
 + keyDownHandler()
 + keyUpHandler()
+## Play
+[https://0xdeciverangel.github.io/JSgmae/](https://0xdeciverangel.github.io/JSgmae/)
