@@ -15,4 +15,4 @@ use only js css html
 + keyDownHandler()
 + keyUpHandler()
 ## Play
-[https://0xdeciverangel.github.io/JSgmae/](https://0xdeciverangel.github.io/JSgmae/)
+[https://0xdeciverangel.github.io/JSgame/](https://0xdeciverangel.github.io/JSgame/)
